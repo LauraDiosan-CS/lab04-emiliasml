@@ -1,3 +1,2 @@
 #pragma once
-void testsProject();
-void testsRepository();
+void runTests();

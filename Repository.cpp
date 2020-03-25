@@ -20,7 +20,7 @@ void RepositoryArray::addElem(Project p) {
 int RepositoryArray::findElem(Project p) {
 	int i = 0;
 	while (i < size) {
-		if (p == elem[i]) return i; 
+		if (p == elem[i]) return i;
 		i++;
 	}
 	return -1;
@@ -33,11 +33,12 @@ void RepositoryArray::delElem(Project p) {
 	size--;
 }
 
-void RepositoryArray::updateElem(Project p, char* g, int b, int c) {
+void RepositoryArray::updateElem(Project p, const char* g, int b, int c) {
 	int i = findElem(p);
 	elem[i].setGitPath(g);
 	elem[i].setBranches(b);
 	elem[i].setCommits(c);
+
 }
 
 Project RepositoryArray::getItemFromPos(int i) {

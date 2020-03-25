@@ -35,7 +35,7 @@ int Project::getBranches() {
 }
 int Project::getCommits() {
 	return commits;
-} 
+}
 
 
 //setters

@@ -12,9 +12,10 @@ public:
 	void addElem(Project);
 	int findElem(Project);
 	Project getItemFromPos(int);
-	void delElem(Project);
+	int delElem(Project);
 	void updateElem(Project, const char*, int, int);
 	Project* getAll();
 	int dim();
+	Project elemAtPos(int);
 	~RepositoryArray();
 };

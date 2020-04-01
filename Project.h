@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <string>
+using namespace std;
 //Project(gitPath, noOfBranches, totalNoOfCommits)
 class Project {
 private:
@@ -17,6 +20,9 @@ public:
 	void setBranches(int);
 	void setCommits(int);
 	bool operator==(const Project&);
+	Project(string);
+	friend ostream& operator<<(ostream& os, Project p);
+	friend istream& operator>>(istream&, Project&);
 	~Project();
 
 };

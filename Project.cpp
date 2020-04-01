@@ -1,6 +1,7 @@
 //Project(gitPath, branches, commits)
 #include "Project.h"
 #include <string.h>
+#include <sstream>
 
 // Constructor
 Project::Project() {
@@ -74,3 +75,39 @@ Project& Project::operator=(const Project& p) {
 bool Project::operator==(const Project& p) {
 	return (strcmp(gitPath, p.gitPath) == 0) and (branches == p.branches) and (commits == p.commits);
 }
+
+Project::Project(string linie){
+	std::istringstream iss(linie);
+	string tok1, tok2, tok3;
+	iss >> tok1 >> tok2 >> tok3;
+	gitPath = new char[tok1.length() + 1];
+	strcpy_s(gitPath, tok1.length() + 1, tok1.c_str());
+	branches = stoi(tok2);
+	commits = stoi(tok3);
+}
+
+ostream& operator<<(ostream& os, Project p)
+{
+	os << p.gitPath << " " << p.branches << " " << p.commits << endl;
+	return os;
+}
+
+istream& operator>>(istream& is, Project& p)
+{
+	cout << endl;
+	cout << "     GitPath=";
+	char* g = new char[10];
+	is >> g;
+	cout << "     Branches=";
+	int b;
+	cin >> b;
+	cout << "     Commits=";
+	int c;
+	cin >> c;
+	p.setGitPath(g);
+	p.setBranches(b);
+	p.setCommits(c);
+	delete[] g;
+	return is;
+}
+

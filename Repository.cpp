@@ -13,6 +13,12 @@ int RepositoryArray::dim() {
 	return size;
 }
 
+Project RepositoryArray::elemAtPos(int i)
+{
+	if (i < 0 or i >= dim()) return Project("", -1, -1);
+	else return elem[i];
+}
+
 void RepositoryArray::addElem(Project p) {
 	elem[size++] = p;
 }
@@ -26,11 +32,14 @@ int RepositoryArray::findElem(Project p) {
 	return -1;
 }
 
-void RepositoryArray::delElem(Project p) {
+int RepositoryArray::delElem(Project p) {
 	int i = findElem(p);
-	if (i != -1)
+	if (i != -1) {
 		elem[i] = elem[size - 1];
-	size--;
+		size--;
+		return 0;
+	}
+	return -1;
 }
 
 void RepositoryArray::updateElem(Project p, const char* g, int b, int c) {

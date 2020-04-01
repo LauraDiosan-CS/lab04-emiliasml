@@ -20,6 +20,7 @@ void searchProjectsRepo(RepositoryArray& rep, int K, int L, Project projFound[],
 	}
 }
 
+
 //eliminarea proiectelor care au noOfBranches*totalNoOfCommits = 0
 void deleteProjZero(RepositoryArray& rep) {
 	int i = 0;
